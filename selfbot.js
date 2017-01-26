@@ -15,6 +15,7 @@ var shortcuts = new Map([
 ]);
 client.on("ready", () => {
   console.log('Thanks for Loading me!')
+  client.user.setGame('with some JS.')
 });
 function clean(text) {
   if (typeof(text) === "string")
@@ -27,7 +28,7 @@ client.on('message', message => {
   const command = params.shift().slice(prefix.length);
 
   if(message.content.startsWith(prefix+"eval")) {
-    if(msg.author !== client.user) return;
+    if(message.author !== client.user) return;
     try {
       var code = params.join(" ");
       var evaled = eval(code);
@@ -45,10 +46,29 @@ client.on("message", msg => {
   const params = msg.content.split(" ").slice(1);
   if(msg.author !== client.user) return;
   if (msg.content.startsWith(prefix + 'shutdown'))
-    msg.edit('shutting down.')
-    process.exit()
   if (msg.content.includes("trump")) 
     msg.react('👎');
+  if (msg.content.startsWith(prefix + "slap")) {
+   let [username] = msg.content.split(" ").slice(1);
+     msg.channel.sendMessage(username + ' was slapped by ' + msg.author)
+ }
+   if (msg.content.startsWith(prefix + "offtopic")) {
+  let [what, desc, pro2] = msg.content.split(" ").slice(1);
+    msg.edit(what + ", move to <#246872804664803329> pease!")
+}
+  if (msg.content.startsWith(prefix + "talk")) {
+  let [what, desc, pro2] = msg.content.split("|").slice(1);
+    msg.edit("", {embed: {
+            color: 2012323,
+            author: {
+                 name: what,
+                icon_url: ""
+            },
+            description: desc,
+            fields: [
+            ]
+        }});
+}
   if (msg.content.startsWith(prefix + 'setgame'))
     msg.edit('```js\nclient.on("ready", () => {\n  client.user.setGame("Half-Life 3")\n});\n```')
   if(msg.content.startsWith(prefix+"prune")) {
@@ -68,4 +88,4 @@ client.on("message", msg => {
   }
 });
 
-client.login("<token of wowness>")
+client.login("nonononono")
