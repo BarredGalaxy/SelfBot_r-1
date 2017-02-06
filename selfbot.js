@@ -11,7 +11,9 @@ var shortcuts = new Map([
   ["shrug", "¯\\_(ツ)_/¯"],
   ["justright", "✋😩👌"],
   ["tableflip", "(╯°□°）╯︵ ┻━┻"],
-  ["unflip", "┬──┬﻿ ノ( ゜-゜ノ)"]
+  ["unflip", "┬──┬﻿ ノ( ゜-゜ノ)"],
+  ["2flip", "┻━┻ ︵ヽ(`Д´)ﾉ︵﻿ ┻━┻"],
+  ["allflip", "┻━┻ ︵┻━┻ ︵┻━┻ ︵┻━┻ ︵ヽ(`Д´)ﾉ︵﻿ ┻━┻︵﻿ ┻━┻︵﻿ ┻━┻︵﻿ ┻━┻"]
 ]);
 client.on("ready", () => {
   console.log('Thanks for Loading me!')
@@ -45,6 +47,17 @@ client.on('message', message => {
 client.on("message", msg => {
   const params = msg.content.split(" ").slice(1);
   if(msg.author !== client.user) return;
+  if (msg.content.startsWith(prefix + 'faces')) {
+  let [what, pro, pro2] = msg.content.split(" ").slice(1);
+  if (what === "help")
+    if (pro === 'help')
+      msg.delete()
+      msg.channel.sendMessage("BarredGalaxy's Emote Selfbot!\n \nSmiles:\n`lenny` `2flip` `bee`")
+  }
+  if (msg.content.startsWith(prefix + "asciilove")) {
+  	msg.edit('💕 With Love From Barred! 💕')
+  	msg.channel.sendMessage('```\n          ******       ******\n        **********   **********\n      ************* *************\n     *****************************\n     *****************************\n     *****************************\n      ***************************\n        ***********************\n          *******************\n            ***************\n              ***********\n                *******\n                  ***\n                   *```')
+  }
   if (msg.content.startsWith(prefix + "slap")) {
    let [username] = msg.content.split(" ").slice(1);
      msg.channel.sendMessage(username + ' was slapped by ' + msg.author)
@@ -87,4 +100,4 @@ client.on("message", msg => {
   }
 });
 
-client.login("<no children>")
+client.login("WHY HELLO THERE!")
