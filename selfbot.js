@@ -6,7 +6,7 @@ const invitelink = "https://discord.gg/4suNThV"
 const n1 = "weareno1 "
 var newUsers = new Discord.Collection();
 const fs = require("fs");
-const playercards = ["BarredGalaxy [*50%*]", "BarredGalaxy [*50%*]", "BarredGalaxy [*50%*]", "GalaxyIsBroken [*5%*]", "Omanges [*1%*]", "BluePandaDragon [*2%*]", "Neterkun [*10%*]", "Prxncey [*14%*]", "Desstie [*10%*]"];
+const playercards = ["BarredGalaxy [*50%*]", "GalaxyIsBroken [*0.01%*]", "Omanges [*0.00000001%*]", "BluePandaDragon [*2%*]", "Neterkun [*10%*]", "Prxncey [*14%*]", "Desstie [*10%*]"];
 var shortcuts = new Map([
   ["lenny", "( ͡° ͜ʖ ͡°)"],
   ["shrug", "¯\\_(ツ)_/¯"],
@@ -74,10 +74,30 @@ client.on("message", msg => {
    let [username] = msg.content.split(" ").slice(1);
      msg.channel.sendMessage(username + ' was slapped by ' + msg.author)
 }
+  if (msg.content.startsWith(prefix + 'danceemoji'))
+    msg.channel.sendMessage('dance').then(sent => {
+      setTimeout(() => sent.edit(':point_down:'), 10) 
+      setTimeout(() => sent.edit(':point_up:'), 10)
+      setTimeout(() => sent.edit(':point_down:'), 10)
+      setTimeout(() => sent.edit(':point_up:'), 10)
+      setTimeout(() => sent.edit(':point_down:'), 10) 
+      setTimeout(() => sent.edit(':point_up:'), 10)
+      setTimeout(() => sent.edit(':point_down:'), 10)
+    });
+  if (msg.content.startsWith(prefix + 'laugh'))
+    msg.channel.sendMessage('dance').then(sent => {
+      setTimeout(() => sent.edit(':laughing:'), 10) 
+      setTimeout(() => sent.edit(':smile:'), 10)
+      setTimeout(() => sent.edit(':laughing:'), 10)
+      setTimeout(() => sent.edit(':smile:'), 10)
+      setTimeout(() => sent.edit(':laughing:'), 10) 
+      setTimeout(() => sent.edit(':smile:'), 10)
+      setTimeout(() => sent.edit(':laughing:'), 10)
+    });
   if (msg.content.startsWith(prefix + "offtopic")) {
   let [what, desc, pro2] = msg.content.split(" ").slice(1);
     msg.delete()
-    msg.channel.sendMessage(what + ", move to <#246872804664803329> you skrub!")
+    msg.channel.sendMessage(what + ", move to <#278030418463162370> you skrub!")
 }
 const embed = new Discord.RichEmbed()
   .setTitle('Ayy')
@@ -143,4 +163,4 @@ const embed = new Discord.RichEmbed()
   }
 });
 
-client.login("no")
+client.login("Hell to the nah nah")
